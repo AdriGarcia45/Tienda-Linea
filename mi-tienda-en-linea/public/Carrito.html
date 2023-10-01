@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+</head>
+<body>
+  <h1>Carrito de Compras</h1>
+  <ul id="cart-items">
+    <!-- Los elementos del carrito se agregarán aquí -->
+  </ul>
+  <p id="cart-total">Total: $0 MXN</p>
+
+  <script>
+    // Realiza una solicitud HTTP para obtener los datos del carrito
+    axios.get('URL_DE_TU_API_O_ENDPOINT_DEL_CARRITO')
+      .then(function (response) {
+        const cartItems = response.data; // Supongamos que los datos se envían como un arreglo JSON
+
+        // Función para mostrar los elementos del carrito
+        function displayCartItems() {
+          const cartList = document.getElementById('cart-items');
+          const cartTotal = document.getElementById('cart-total');
+
+          // Limpia el contenido actual
+          cartList.innerHTML = '';
+
+          // Recorre los elementos del carrito y crea list items
+          let total = 0;
+          cartItems.forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - Precio: $${item.price} MXN`;
+            cartList.appendChild(li);
+            total += item.price;
+          });
+
+          // Muestra el total
+          cartTotal.textContent = `Total: $${total} MXN`;
+        }
+
+        // Llama a la función para mostrar los elementos del carrito
+        displayCartItems();
+      })
+      .catch(function (error) {
+        console.error('Error al obtener los datos del carrito', error);
+      });
+  </script>
+</body>
+</html>

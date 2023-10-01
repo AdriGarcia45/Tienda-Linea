@@ -1,0 +1,84 @@
+/* src/components/Home.css */
+.home {
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+
+/* src/components/Home.css */
+.featured-products {
+  background-color: #3b278180; /* Color de fondo diferente al de toda la página */
+  padding: 20px;
+  border-radius: 10px; /* Agregamos un borde redondeado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombras iniciales */
+  display:block;
+  flex-wrap:unset;
+  gap: 0px;
+  justify-content:center; /* Espaciado entre los productos */
+  animation: shadowAnimation 1s infinite alternate;
+}
+
+@keyframes shadowAnimation {
+  0% {
+    box-shadow: 0 0 100px rgba(1, 45, 87, 0.932);
+  }
+  100% {
+    box-shadow: 0 0 100px rgba(255, 230, 8, 0.986); /* Cambiamos los valores RGB */
+  }
+}
+
+/* Estilos para cada producto dentro de la sección de productos destacados */
+.product {
+  background-color: #0b9499ec; /* Fondo de cada producto */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2 5px rgba(4, 50, 150, 0.2);
+  flex-basis: calc(30% - 26px); /* Ancho del producto con espacio entre ellos */
+  /* Puedes ajustar los estilos según tus preferencias */
+}
+
+.product img {
+  max-width: 90%;
+  height:fit-content;
+}
+/* CSS para el mensaje llamativo */
+.product button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+}
+
+.product button:hover {
+  background-color: #621a9c; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilo del mensaje de alerta */
+.alert-message {
+  background-color: #ffcc00; /* Color de fondo del mensaje */
+  color: #333; /* Color del texto del mensaje */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 100px; /* Espacio entre el mensaje y el botón */
+  display: none; /* Inicialmente oculto */
+}
+
